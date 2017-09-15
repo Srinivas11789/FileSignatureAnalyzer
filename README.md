@@ -3,3 +3,4 @@
 
 Sample Output for few files in the Directory:
 
+![Alt text](/Output_Screen.png?raw=true "Sample Output")
