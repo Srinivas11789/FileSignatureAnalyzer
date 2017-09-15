@@ -1015,8 +1015,8 @@ magic_number_intelligence = {
 }
 
 file_names = []
-file_names.append(sys.argv[1])
-print file_names
+#file_names.append(sys.argv[1])
+#print file_names
 
 hash_verify = sys.argv[2]
 #RESULT TABLE CREATION
@@ -1050,7 +1050,7 @@ for file_name in os.listdir(os.getcwd()):
                 file_format.append(key)
 
     if file_format == []:
-        file_format = None
+        file_format.append("None")
 
     # Hash Verification
     verify = "Fail"
@@ -1059,21 +1059,25 @@ for file_name in os.listdir(os.getcwd()):
         if(original_hash == md5_after_analysis):
             verify = "Success"
 
-    table_of_content.add_row([file_name, file_format, first_line, "-", original_hash, md5_after_analysis])
+    table_of_content.add_row([file_name, "/".join(file_format), first_line, "-", original_hash, md5_after_analysis])
 
-    print "====="* 30
-    print "   "*20+"     FILE SIGNATURE ANALYZER     "+"   "*20
-    print "====="* 30
+#    print "====="* 30
+#    print "   "*20+"     FILE SIGNATURE ANALYZER     "+"   "*20
+#    print "====="* 30
 
-    print "File name is  ==> %s" % (file_name)
-    print "Magic number is  ==> %s" % (first_line)
-    print "Original MD5 Hash of the file is ==> %s" % (original_hash)
-    print "The File Format of the Respective File - %s is %s" % (file_name, file_format)
-    if hash_verify == "True":
-        print "Hash Verification after analysis is %s and Verification result is %s" % (md5_after_analysis, verify)
+#    print "File name is  ==> %s" % (file_name)
+#    print "Magic number is  ==> %s" % (first_line)
+#    print "Original MD5 Hash of the file is ==> %s" % (original_hash)
+#    print "The File Format of the Respective File - %s is %s" % (file_name, file_format)
+#    if hash_verify == "True":
+#        print "Hash Verification after analysis is %s and Verification result is %s" % (md5_after_analysis, verify)
 
-print "=======>>>  RESULT TABLE ==================>>> "
+#print "=======>>>  RESULT TABLE ==================>>> "
 
+print "====="* 30
+print "   "*20+"     FILE SIGNATURE ANALYZER     "+"   "*20
+print "====="* 30
+print "The Content Answer Table is ------------ >>>>>>>"
 print table_of_content
 
 
